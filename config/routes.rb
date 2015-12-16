@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :articles do
   	resources :comments
+  end
+
+  resources :users do
+  	member do
+  		get :following, :followers
+  	end
   end
 
   get '/:username', to: 'articles#index', as: 'userpage'
