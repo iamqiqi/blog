@@ -2,13 +2,7 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		if params[:username]
-			@user = User.find_by_username(params[:username])
-			@articles = Article.where(user: @user)
-		else
-			@articles = Article.all
-		end
-
+		@articles = Article.all
 	end
 
 	def show

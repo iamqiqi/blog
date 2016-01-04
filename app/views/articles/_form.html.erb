@@ -25,7 +25,11 @@
 	</p>
 
 	<p>
-		<%= f.submit %>
+		<% if @article.persisted? %>
+			<%= f.submit "Save Changes" %>
+		<% else %>
+			<%= f.submit "Post Article" %>
+		<% end %>
 	</p>
 
 <% end %>

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem "pundit"
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
-  resources :users do
+  resources :users, only: [:index]
+
+  resources :users, param: :username, path: '/', only: [:show] do
   	member do
   		get :following, :followers
+  		post :follow, :unfollow
   	end
   end
-
-  get '/:username', to: 'articles#index', as: 'userpage'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
