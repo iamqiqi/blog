@@ -22,9 +22,22 @@
 			</div>
 			<div class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
-					Logged in as <strong><%= current_user.username %></strong>.
-					Following: <%= link_to current_user.following.count, following_user_path(current_user) %>
-					Followers: <%= link_to current_user.followers.count, followers_user_path(current_user) %>
+					Logged in as <strong><%= link_to current_user.username, user_path(current_user) %></strong>.
+					
+					Following: 
+					<% if current_user.following.count != 0 %>
+						<%= link_to current_user.following.count, following_user_path(current_user) %>
+					<% else %>
+						0
+					<% end %>
+					
+					Followers:
+					<% if current_user.followers.count != 0 %>
+						<%= link_to current_user.followers.count, followers_user_path(current_user) %>
+					<% else %>
+						0
+					<% end %>
+					
 					<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
 					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
 				<% else %>

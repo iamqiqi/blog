@@ -1,22 +1,30 @@
 <h1><%= @user.username %>'s followings</h1>
-<table>
-	<tr>
-		<th>username</th>
-		<th>Brief</th>
-		<th colspan="5"></th>
-	</tr>
+<div class="UserList">
+	<div class="row UserList-Headers">
+		<div class="col-sm-2"><strong>username</strong></div>
+		<div class="col-sm-3"><strong>bro</strong></div>
+		<div class="col-sm-7"></div>
+	</div>
 
 	<% @following.each do |followee| %>
-		<tr>
-			<td><%= followee.username %></td>
-			<td><%= followee.brief %></td>
+		<div class="row UserList-Row">
+			<div class="col-sm-2 UserList-Username">
+				<%= followee.username %>
+			</div>
+			<div class="col-sm-3 UserList-Username">
+				<%= followee.brief %>
+			</div>
 			<% if current_user != followee %>
 				<% if current_user and current_user.following?(followee) %>
-					<td><%= link_to "Unfollow", unfollow_user_path(followee), class: 'btn btn-primary', method: :post %></td>
+					<div class="col-sm-7">
+						<%= link_to "Unfollow", unfollow_user_path(followee), class: 'btn btn-primary UserList-FollowButton', method: :post %>
+					</div>
 				<% else %>
-					<td><%= link_to "Follow", follow_user_path(followee), class: 'btn btn-primary', method: :post %></td>
+					<div class="col-sm-7">
+						<%= link_to "Follow", follow_user_path(followee), class: 'btn btn-primary', method: :post %>
+					</div>
 				<% end %>
 			<% end %>
-		</tr>
+		</div>
 	<% end %>
-</table>
+</div>

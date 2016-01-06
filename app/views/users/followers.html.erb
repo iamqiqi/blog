@@ -1,8 +1,8 @@
 <h1><%= @user.username %>'s followers</h1>
 <div class="UserList">
 	<div class="row UserList-Headers">
-		<div class="col-sm-2"><strong>user name</strong></div>
-		<div class="col-sm-3"><strong>brief</strong></div>
+		<div class="col-sm-2"><strong>username</strong></div>
+		<div class="col-sm-3"><strong>bio</strong></div>
 		<div class="col-sm-7"></div>
 	</div>
 
@@ -16,9 +16,13 @@
 			</div>
 			<% if current_user != follower %>
 				<% if current_user and current_user.following?(follower) %>
-					<div class="col-sm-7"><%= link_to "Unfollow", unfollow_user_path(follower), class: 'btn btn-primary UserList-FollowButton', method: :post %></div>
+					<div class="col-sm-7">
+						<%= link_to "Unfollow", unfollow_user_path(follower), class: 'btn btn-primary UserList-FollowButton', method: :post %>
+					</div>
 				<% else %>
-					<div class="col-sm-7"><%= link_to "Follow", follow_user_path(follower), class: 'btn btn-primary UserList-FollowButton', method: :post %></div>
+					<div class="col-sm-7">
+						<%= link_to "Follow", follow_user_path(follower), class: 'btn btn-primary UserList-FollowButton', method: :post %>
+					</div>
 				<% end %>
 			<% end %>
 		</div>

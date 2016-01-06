@@ -1,28 +1,40 @@
 <h1>Listing Articles</h1>
 <%= link_to 'New article', new_article_path %>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Text</th>
-		<th>Author</th>
-		<th colspan="3"></th>
-	</tr>
+<div class="UserList">
+	<div class="row UserList-Headers">
+		<div class="col-sm-2"><strong>Title</strong></div>
+		<div class="col-sm-3"><strong>Text</strong></div>
+		<div class="col-sm-1"><strong>Author</strong></div>
+		<div class="col-sm-6"></div>
+	</div>
 
 	<% @articles.each do |article| %>
-		<tr>
-			<td><%= article.title %></td>
-			<td><%= article.text %></td>
-			<td><%= link_to article.user.username, user_path(article.user) %></td>
-			<td><%= link_to 'Show', article_path(article) %></td>
+		<div class="row UserList-Row">
+			<div class="col-sm-2 UserList-Username">
+				<%= article.title %>
+			</div>
+			<div class="col-sm-3 UserList-Username">
+				<%= article.text %>
+			</div>
+			<div class="col-sm-1 UserList-Username">
+				<%= link_to article.user.username, user_path(article.user) %>
+			</div>
+			<div class="col-sm-1 UserList-Username">
+				<%= link_to 'Show', article_path(article) %>
+			</div>
 			<% if policy(article).edit? %>
-				<td><%= link_to 'Edit', edit_article_path(article) %></td>
+				<div class="col-sm-1 UserList-Username">
+					<%= link_to 'Edit', edit_article_path(article) %>
+				</div>
 			<% end %>
 			<% if policy(article).destroy? %>
-				<td><%= link_to 'Destroy', article_path(article),
+				<div class="col-sm-1 UserList-Username">
+					<%= link_to 'Destroy', article_path(article),
 				method: :delete,
-				data: { confirm: 'Are you sure?' } %></td>
+				data: { confirm: 'Are you sure?' } %>
+				</div>
 			<% end %>
 
-		</tr>
+		</div>
 	<% end %>
-</table>
+</div>
