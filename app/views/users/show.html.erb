@@ -1,16 +1,43 @@
 <h1><%= @user.username %></h1>
 <div>
-	<% if @user.bio %>
-		@user.bio
-		<%= link_to 'Edit Bio' %>
-	<% else %>
-		<%= link_to 'Edit Bio' %>
+	<div id="bio">
+		<% if @user.bio %>
+			<%= @user.bio %>
+		<% end %>
+	</div>
+
+	<% if @user == current_user %>
+		<% if !current_user.bio.blank? %>
+			<%= link_to 'Edit Bio', '#', id: 'edit_bio_link' %>
+		<% else %>
+			<%= link_to 'Add Bio', '#', id: 'edit_bio_link' %>
+		<% end %>
+		<%= form_for current_user, html: { class: 'hidden', id: 'edit_bio_form'} do |f| %>
+			<% if @user.errors.any? %>
+				<div id="error_explanation">
+					<h2>
+						<%= pluralize(@user.errors.count, "error") %> prohibited from being saved:
+					</h2>
+					<ul>
+						<% @user.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<p>
+				<%= f.text_area :bio %>
+			</p>
+			<p>
+				<%= f.submit "Update Bio" %>
+			</p>
+		<% end %>
 	<% end %>
 </div>
 
 <% if policy(Article).new? and current_user == @user %>
 	<%= link_to 'New article', new_article_path %>
-	
+
 <% else %>
 	<% if current_user and current_user.following?(@user) %>
 		<%= link_to "Unfollow", unfollow_user_path(@user), class: 'btn btn-primary', method: :post %>
@@ -32,7 +59,7 @@
 			</div>
 			<div class="col-sm-4 UserList-Username">
 				<%= article.text %>
-			</div>			
+			</div>
 			<div class="col-sm-1 UserList-Username">
 				<%= link_to 'Show', article_path(article) %>
 			</div>

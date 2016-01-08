@@ -10,6 +10,12 @@ class UsersController < ApplicationController
 		@articles = @user.articles
 	end
 
+	def update
+		current_user.bio = params[:user][:bio]
+		current_user.save
+		redirect_to :back
+	end
+
 	def follow
 		@user = User.find_by_username(params[:username])
 

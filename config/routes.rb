@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index]
 
-  resources :users, param: :username, path: '/', only: [:show] do
+  resources :users, param: :username, path: '/', only: [:show, :update] do
   	member do
   		get :following, :followers
   		post :follow, :unfollow
