@@ -1,18 +1,18 @@
 <h1><%= @user.username %>'s followings</h1>
 <div class="UserList">
 	<div class="row UserList-Headers">
-		<div class="col-sm-2"><strong>username</strong></div>
-		<div class="col-sm-3"><strong>bro</strong></div>
+		<div class="col-sm-2"><strong>Username</strong></div>
+		<div class="col-sm-3"><strong>Bio</strong></div>
 		<div class="col-sm-7"></div>
 	</div>
 
 	<% @following.each do |followee| %>
 		<div class="row UserList-Row">
 			<div class="col-sm-2 UserList-Username">
-				<%= followee.username %>
+				<%= link_to followee.username, user_path(followee) %>
 			</div>
 			<div class="col-sm-3 UserList-Username">
-				<%= followee.brief %>
+				<%= followee.bio %>
 			</div>
 			<% if current_user != followee %>
 				<% if current_user and current_user.following?(followee) %>

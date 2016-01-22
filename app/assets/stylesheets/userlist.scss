@@ -16,5 +16,12 @@
 
 	.UserList-Username {
 		margin-top: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
+}
+
+a:hover {
+	text-decoration: none;
 }

@@ -8,7 +8,7 @@
 
 	<% if @user == current_user %>
 		<% if !current_user.bio.blank? %>
-			<%= link_to 'Edit Bio', '#', id: 'edit_bio_link' %>
+			<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil' %>
 		<% else %>
 			<%= link_to 'Add Bio', '#', id: 'edit_bio_link' %>
 		<% end %>
@@ -78,3 +78,5 @@
 		</div>
 	<% end %>
 </div>
+
+
