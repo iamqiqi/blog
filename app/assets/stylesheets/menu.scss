@@ -1,0 +1,32 @@
+.menu {
+	margin-bottom: 15px;
+	list-style: none;
+	background-color: #fff;
+	border: 1px solid #d8d8d8;
+	border-radius: 3px;
+}
+
+.menu-heading {
+	display: block;
+	padding: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #555;
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #eee;
+}
+
+.menu-item {
+	display: block;
+	padding: 10px;
+	font-size: 13px;
+	line-height: 20px;
+	color: #555;
+	border-bottom: 1px solid #eee;
+}
+
+.menu-item:hover {
+	text-decoration: none;
+
+}
