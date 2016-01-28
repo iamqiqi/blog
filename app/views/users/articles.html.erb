@@ -1,0 +1,50 @@
+<div class="col-sm-3">
+	<%= render 'menu' %>
+</div>
+<div class="col-sm-8 col-sm-off-1">
+
+	<% if policy(Article).new? and current_user == @user %>
+		<%= link_to 'New article', new_article_path %>
+
+	<% else %>
+		<% if current_user and current_user.following?(@user) %>
+			<%= link_to "Unfollow", unfollow_user_path(@user), class: 'btn btn-primary', method: :post %>
+		<% else %>
+			<%= link_to "Follow", follow_user_path(@user), class: 'btn btn-primary', method: :post %>
+		<% end %>
+	<% end %>
+	<div class="UserList">
+		<div class="row UserList-Headers">
+			<div class="col-sm-3 UserList-Username"><strong>Title</strong></div>
+			<div class="col-sm-3 UserList-Username"><strong>Text</strong></div>
+			<div class="col-sm-6 UserList-Username"></div>
+		</div>
+
+		<% @articles.each do |article| %>
+			<div class="row UserList-Row">
+				<div class="col-sm-3 UserList-Username">
+					<%= article.title %>
+				</div>
+				<div class="col-sm-3 UserList-Username">
+					<%= article.text %>
+				</div>
+				<div class="col-sm-2 UserList-Username">
+					<%= link_to 'Show', article_path(article) %>
+				</div>
+				<% if policy(article).edit? %>
+					<div class="col-sm-2 UserList-Username">
+						<%= link_to 'Edit', edit_article_path(article) %>
+					</div>
+				<% end %>
+				<% if policy(article).destroy? %>
+					<div class="col-sm-2 UserList-Username">
+						<%= link_to 'Destroy', article_path(article),
+					method: :delete,
+					data: { confirm: 'Are you sure?' } %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+</div>

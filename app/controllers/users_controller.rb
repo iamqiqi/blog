@@ -49,4 +49,17 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:username])
 		@following = @user.following
 	end
+
+	def edit
+		@user = User.find_by_username(params[:username])
+	end
+
+	def profile
+		@user = User.find_by_username(params[:username])
+	end
+
+	def articles
+		@user = User.find_by_username(params[:username])
+		@articles = @user.articles
+	end
 end

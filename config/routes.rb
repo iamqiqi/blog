@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # as :user do
+  #   get "/users/edit_account_settings", to: "devise/registrations#edit", as: :edit_user_account_registration
+  # end
+
+  # get "/users/edit_account_settings", to: "devise/registrations#edit", as: :edit_user_account_registration
+
   resources :articles do
   	resources :comments
   end
@@ -11,8 +17,11 @@ Rails.application.routes.draw do
   	member do
   		get :following, :followers
   		post :follow, :unfollow
+  		get :profile, :articles
+  		get :edit
   	end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -28,5 +28,12 @@
 
 .menu-item:hover {
 	text-decoration: none;
+	background-color: #f7f7f7;
+}
 
+.menu-item.active {
+	text-decoration: none;
+	background-color: #f7f7f7;
+	color: black;
+	font-weight: bold;
 }
