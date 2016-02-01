@@ -52,18 +52,22 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by_username(params[:username])
+		authorize @user
 	end
 
 	def account_settings
 		@user = User.find_by_username(params[:username])
+		authorize @user
 	end
 
 	def profile
 		@user = User.find_by_username(params[:username])
+		authorize @user
 	end
 
 	def articles
 		@user = User.find_by_username(params[:username])
+		authorize @user
 		@articles = @user.articles
 	end
 end

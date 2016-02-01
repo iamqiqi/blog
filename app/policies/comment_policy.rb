@@ -6,29 +6,29 @@ class CommentPolicy
 		@comment = comment
 	end
 
-	def index?
-		true
-	end
+	# def index?
+	# 	true
+	# end
 
-	def show?
-		true
-	end
+	# def show?
+	# 	true
+	# end
 
 	def create?
 		!@user.nil?
 	end
 
-	def new?
-		create?
-	end
+	# def new?
+	# 	create?
+	# end
 
-	def update?
-		@comment.user == @user
-	end
+	# def update?
+	# 	@comment.user == @user
+	# end
 
-	def edit?
-		update?
-	end
+	# def edit?
+	# 	update?
+	# end
 
 	def destroy?
 		@comment.user == @user or
