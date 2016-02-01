@@ -1,6 +1,6 @@
 <div class="menu">
 	<div class="menu-heading">Personal settings</div>
-	<%= link_to "Profile", profile_user_path(@user), class: "menu-item" %>
-	<%= link_to "Account settings", edit_user_registration_path, class: "menu-item" %>
-	<%= link_to "Articles", articles_user_path(@user), class: "menu-item" %>
+	<%= active_link_to "Profile", profile_user_path(@user), class: "menu-item" %>
+	<%= active_link_to "Account settings", account_settings_user_path(@user), class: "menu-item" %>
+	<%= active_link_to "Articles", articles_user_path(@user), class: "menu-item" %>
 </div>

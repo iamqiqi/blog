@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   		post :follow, :unfollow
   		get :profile, :articles
   		get :edit
+  		get :account_settings
   	end
   end
 

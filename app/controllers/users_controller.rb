@@ -54,6 +54,10 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:username])
 	end
 
+	def account_settings
+		@user = User.find_by_username(params[:username])
+	end
+
 	def profile
 		@user = User.find_by_username(params[:username])
 	end

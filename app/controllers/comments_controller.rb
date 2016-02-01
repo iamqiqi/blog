@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :load_activities
 
 	def create
 		@article = Article.find(params[:article_id])
@@ -22,5 +23,9 @@ class CommentsController < ApplicationController
 	private
 	def comment_params
 		params.require(:comment).permit(:body)
+	end
+
+	def load_activities
+		@activities = PublicActivity::Activity.order('created_at DESC').limit(20)
 	end
 end
