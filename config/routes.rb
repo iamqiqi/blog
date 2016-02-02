@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   		get :profile, :articles
   		get :edit
   		get :account_settings
+  		get :newsfeed
   	end
   end
 

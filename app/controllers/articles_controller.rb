@@ -57,6 +57,6 @@ private
 	end
 
 	def load_activities
-		@activities = PublicActivity::Activity.order('created_at DESC').limit(20)
+		@activities1 = PublicActivity::Activity.order('created_at DESC').limit(20)
 	end
 end

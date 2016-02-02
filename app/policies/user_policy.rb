@@ -21,4 +21,8 @@ class UserPolicy
 	def articles?
 		edit?
 	end
+
+	def newsfeed?
+		edit?
+	end
 end
