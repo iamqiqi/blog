@@ -1,6 +1,5 @@
 class Article < ActiveRecord::Base
-	include PublicActivity::Model
-	tracked owner: Proc.new{ |controller, model| model.user }
+	include PublicActivity::Common
 
 	has_many :comments, dependent: :destroy
 	belongs_to :user

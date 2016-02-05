@@ -74,19 +74,6 @@ class UsersController < ApplicationController
 	def newsfeed
 		@user = User.find_by_username(params[:username])
 		authorize @user
-		@followers = Array.new
-		@keys = Array.new
 		@activities = PublicActivity::Activity.where(recipient_id: current_user.id).order('created_at DESC')
-		@length = @activities.length
-		for i in 0..@length-1
-			@user = User.find(@activities[i].owner_id)
-			@keys.push(@activities[i].key)
-			@followers.push(@user.username)
-		end
-		# @activities.each do |activity|
-		# 	@user = User.find(activity.owner_id)
-		# 	@keys.push(activity.key)
-		# 	@followers.push(@user.username)
-		# end
 	end
 end

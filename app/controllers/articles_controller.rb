@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-	before_action :load_activities, only: [:index, :show, :new, :edit]
 
 	def index
 		@articles = Article.all
@@ -26,6 +25,11 @@ class ArticlesController < ApplicationController
 		authorize @article
 		@article.user = current_user
 		if @article.save
+			@followers = Relationship.where(followee_id: current_user.id)
+			@followers.each do |follower|
+				@fan = User.find(follower.follower_id)
+				@article.create_activity action: 'new', recipient: @fan, owner: current_user, parameters: {article: @article.id}
+			end
 			redirect_to @article
 		else
 			render 'new'
@@ -54,9 +58,5 @@ class ArticlesController < ApplicationController
 private
 	def article_params
 		params.require(:article).permit(:title, :text)
-	end
-
-	def load_activities
-		@activities1 = PublicActivity::Activity.order('created_at DESC').limit(20)
 	end
 end

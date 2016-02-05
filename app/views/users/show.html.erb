@@ -8,9 +8,9 @@
 
 	<% if @user == current_user %>
 		<% if !current_user.bio.blank? %>
-			<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil', 'data-toggle': 'modal', 'data-target': '#mybio' %>
+			<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil', data: {toggle: 'modal', target: '#mybio'} %>
 		<% else %>
-			<%= link_to 'Add Bio', '#', id: 'edit_bio_link', 'data-toggle': 'modal', 'data-target': '#mybio'%>
+			<%= link_to 'Add Bio', '#', id: 'edit_bio_link', data: {toggle: 'modal', target: '#mybio'}%>
 		<% end %>
 		<div id="mybio" class="modal fade" role="dialog">
 			<div class="modal-dialog">

@@ -6,4 +6,25 @@ $(document).ready(function() {
 		$('#edit_bio_link').hide();
 		$('#edit_bio_form').removeClass('hidden');
 	});
+
+	var followlist = [];
+	$('.follow').each(function() {
+		var thisid = $(this).attr('id');
+		if ($.inArray(thisid, followlist) < 0) {
+			followlist.push(thisid);
+			console.log(followlist);
+		} else {
+			$(this).remove(); // delete the order record
+		}
+	});
+
+	var commentlist = [];
+	$('.new_comment').each(function() {
+		var thisid = $(this).attr('id');
+		if ($.inArray(thisid, commentlist) < 0) {
+			commentlist.push(thisid);
+		} else {
+			$(this).remove();
+		}
+	});
 });
