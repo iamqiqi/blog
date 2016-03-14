@@ -1,18 +1,20 @@
-<p>
-	<strong>Commenter:</strong>
-	<%= comment.user.username %>
-</p>
+<div class="edit-container">
+	<div class="panel panel-default panel-body">
+		<div class="comment-heading">
+			<%= link_to comment.user.username, user_path(current_user) %>
+		</div>
 
-<p>
-	<strong>Comment:</strong>
-	<%= comment.body %>
-</p>
+		<div class="comment-textarea">
+			<%= comment.body %>
+		</div>
+	</div>
 
-<% if policy(comment).destroy? %>
-	<p>
-		<%= link_to 'Destroy Comment', [comment.article, comment],
-	method: :delete,
-	data: { confirm: 'Are you sure?' } %>
-	</p>
-<% end %>
-
+	<% if policy(comment).destroy? %>
+		<div>
+			<%= link_to '', [comment.article, comment],
+			class: 'glyphicon glyphicon-remove bio-edit-button remove-button',
+			method: :delete,
+			data: { confirm: 'Are you sure?' } %>
+		</div>
+	<% end %>
+</div>

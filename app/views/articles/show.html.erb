@@ -1,11 +1,13 @@
-<div class="article">
-<p class="title">
+<div class="article-container">
+<p class="article-title">
 	<%= @article.title %>
 </p>
 
-<p class="text">
+<p class="article-text">
 	<%= sanitize(@text) %>
 </p>
+
+<hr>
 
 <h2>Comments</h2>
 <%= render @article.comments %>

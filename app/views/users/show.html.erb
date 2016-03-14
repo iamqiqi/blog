@@ -1,5 +1,5 @@
 <h1 class="username text-center"><%= @user.username %></h1>
-<div class="bio-container">
+<div class="edit-container">
 	<blockquote class="bio-text">
 		<% if @user.bio %>
 			<%= @user.bio %>
@@ -24,7 +24,7 @@
 <% end %>
 
 <% @articles.each do |article| %>
-	<%= link_to article_path(article), class: 'article-title' do %>
+	<%= link_to article_path(article), class: 'article-link' do %>
 		<div><%= article.title %></div>
 		<div class="article-time"><%= article.created_at %></div>
 	<% end %>

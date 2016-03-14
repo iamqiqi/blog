@@ -27,12 +27,9 @@ $navbar-default-link-hover-color: green;
 // 	vertical-align: top;
 // }
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-// Components
-@import "userlist";
-@import "menu";
 
 body {
 	background: #f9f9f9;
@@ -40,3 +37,13 @@ body {
 	font-size: 18px;
 	color: #444;
 }
+
+a:hover {
+	text-decoration: none;
+}
+
+// Components
+@import "userlist";
+@import "article";
+@import "menu";
+@import "comment"

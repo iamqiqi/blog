@@ -22,45 +22,8 @@
 	}
 }
 
-.article-title {
-	font-size: 30px;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	display: block;
-	line-height: 1.5;
-	color: #444;
-
-	&:hover {
-		background-color: #db4c3f;
-		color: white;
-		text-decoration: none;
-	}
-}
-
-.title {
-	font-size: 30px;
-	text-align: center;
-	font-weight: 700;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	display: block;
-	line-height: 1.5;
-	color: #444;
-}
-
-.text {
-	font-weight: 300;
-	font-size: 20px;
-	display: block;
-}
-
-.article {
-	margin-left: 100px;
-	margin-right: 100px;
-}
-
-.bio-container {
+.edit-container {
+	max-width: 100%;
 	display: inline-flex;
 	position:relative;
 }
@@ -69,7 +32,7 @@
 	font-size: 23px;
 }
 
-.bio-container .bio-edit-button {
+.edit-container .bio-edit-button {
 	display: none;
 	position: absolute;
 	right: 5px;
@@ -77,7 +40,7 @@
 	font-size: 20px;
 }
 
-.bio-container:hover .bio-edit-button {
+.edit-container:hover .bio-edit-button {
 	display: inline-block;
 }
 
@@ -87,16 +50,3 @@
 	font-size: 50px;
 }
 
-.article-time {
-	font-size: 15px;
-	font-weight: 300;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-#comment_body {
-	width: 800px;
-	height: 100px;
-}
