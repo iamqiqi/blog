@@ -74,6 +74,7 @@ class UsersController < ApplicationController
 	def newsfeed
 		@user = User.find_by_username(params[:username])
 		authorize @user
-		@activities = PublicActivity::Activity.where(recipient_id: current_user.id).order('created_at DESC')
+		@activities = PublicActivity::Activity.where(recipient_id: current_user.id, key: 'relationship.create').order('created_at DESC')
+		@activities2 = @activities.select('owner_id', 'created_at').group('owner_id').order('created_at DESC').maximum('created_at')
 	end
 end

@@ -1,4 +1,5 @@
-<%# @activities.inspect %>
+<%= @activities.inspect %></br>
+<%= @activities2.inspect %>
 <% @activities.each do |activity| %>
 	<% if activity.key == 'relationship.create' %>
 		<div class="row follow" id=<%= activity.owner_id %> >

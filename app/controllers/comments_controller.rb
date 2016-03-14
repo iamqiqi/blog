@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 		authorize @comment
 		if @comment.save
 			@author = @article.user
-			@comment.create_activity action: 'new', recipient: @author, owner: current_user, article_id: @article.id
+			@comment.create_activity action: 'new', recipient: @author, owner: current_user
 		end
 		redirect_to article_path(@article)
 	end

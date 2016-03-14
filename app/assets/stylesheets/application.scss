@@ -15,9 +15,7 @@
 $navbar-default-bg: transparent;
 //$navbar-default-link-color: red;
 $navbar-default-link-hover-color: green;
-body {
-	background: url('/images/background.jpg');
-}
+
 
 // .row {
 // 	display: table;
@@ -34,4 +32,11 @@ body {
 
 // Components
 @import "userlist";
-@import "menu"
+@import "menu";
+
+body {
+	background: #f9f9f9;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 18px;
+	color: #444;
+}

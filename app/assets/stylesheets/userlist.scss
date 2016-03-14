@@ -22,6 +22,49 @@
 	}
 }
 
+.article-title {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+	line-height: 1.5;
+	color: #444;
+
+	&:hover {
+		background-color: #db4c3f;
+		color: white;
+		text-decoration: none;
+	}
+}
+
+.bio-container {
+	display: inline-flex;
+	position:relative;
+}
+
+.bio-text {
+	font-size: 23px;
+}
+
+.bio-container .bio-edit-button {
+	display: none;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-size: 20px;
+}
+
+.bio-container:hover .bio-edit-button {
+	display: inline-block;
+}
+
+.username {
+	font-weight: bold;
+	color: #cc0000;
+	font-size: 50px;
+}
+
 a:hover {
 	text-decoration: none;
 }

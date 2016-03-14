@@ -30,8 +30,8 @@
 			<% if policy(article).destroy? %>
 				<div class="col-sm-1 UserList-Username">
 					<%= link_to 'Destroy', article_path(article),
-				method: :delete,
-				data: { confirm: 'Are you sure?' } %>
+					method: :delete,
+					data: { confirm: 'Are you sure?' } %>
 				</div>
 			<% end %>
 
