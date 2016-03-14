@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>WeiboSUCKS</title>
-	<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,700,400,400italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
@@ -23,21 +23,23 @@
 			</div>
 			<div class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
-					Logged in as <strong><%= link_to current_user.username, user_path(current_user) %></strong>.
+					<strong><%= link_to current_user.username, user_path(current_user) %></strong>.
 
 					Following:
 					<% if current_user.following.count != 0 %>
 						<%= link_to current_user.following.count, following_user_path(current_user) %>
 					<% else %>
 						0
-					<% end %>
+					<% end %> |
 
 					Followers:
 					<% if current_user.followers.count != 0 %>
 						<%= link_to current_user.followers.count, followers_user_path(current_user) %>
 					<% else %>
 						0
-					<% end %>
+					<% end %> |
+
+					<%= link_to 'New Blog', new_article_path %> |
 
 					<%= link_to 'Edit profile', edit_user_path(current_user), :class => 'navbar-link' %> |
 					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
