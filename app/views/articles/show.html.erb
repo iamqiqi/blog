@@ -1,20 +1,22 @@
 <div class="article-container">
-<p class="article-title">
-	<%= @article.title %>
-</p>
+	<div>
+		<%= link_to 'Edit', edit_article_path(@article) %> |
+		<%= link_to 'Back', articles_path %>
+	<div>
+	<p class="article-title">
+		<%= @article.title %>
+	</p>
 
-<p class="article-text">
-	<%= sanitize(@text) %>
-</p>
+	<p class="article-text">
+		<%= sanitize(@text) %>
+	</p>
 
-<hr>
+	<hr>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+	<div id="comment-heading">COMMENTS</div>
+	<%= render @article.comments %>
+	<hr>
+	<br>
+	<div id="comment-heading">WRITE YOUR COMMENT:</div>
+	<%= render 'comments/form' %>
 </div>

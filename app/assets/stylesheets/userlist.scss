@@ -22,28 +22,6 @@
 	}
 }
 
-.edit-container {
-	max-width: 100%;
-	display: inline-flex;
-	position:relative;
-}
-
-.bio-text {
-	font-size: 23px;
-}
-
-.edit-container .bio-edit-button {
-	display: none;
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	font-size: 20px;
-}
-
-.edit-container:hover .bio-edit-button {
-	display: inline-block;
-}
-
 .username {
 	font-weight: bold;
 	color: #cc0000;

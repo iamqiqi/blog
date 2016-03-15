@@ -16,7 +16,11 @@
     font-size: 15px;
 }
 
-.edit-container .remove-button {
+.comment-container {
+	position:relative;
+}
+
+.comment-container .remove-button {
 	display: none;
 	position: absolute;
 	right: 5px;
@@ -24,10 +28,13 @@
 	font-size: 20px;
 }
 
-.edit-container:hover .remove-button {
+.comment-container:hover .remove-button {
 	display: inline-block;
 }
 
-.panel .panel-default .panel-body {
-    max-width: 100%;
+#comment-heading {
+	height: 50px;
+	font-weight: 700;
+	font-size: 20px;
+	color: #3b1212;
 }

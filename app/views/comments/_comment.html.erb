@@ -1,9 +1,9 @@
-<div class="edit-container">
+<div class="comment-container">
 	<div class="panel panel-default panel-body">
 		<div class="comment-heading">
-			<%= link_to comment.user.username, user_path(current_user) %>
+			<%= link_to comment.user.username, user_path(current_user) %>&nbsp&nbsp
+			<span class="timestamp"><%= comment.created_at %></span>
 		</div>
-
 		<div class="comment-textarea">
 			<%= comment.body %>
 		</div>
