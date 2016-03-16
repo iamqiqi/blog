@@ -13,7 +13,7 @@
 		<div>
 			<%= link_to '', [comment.article, comment],
 			class: 'glyphicon glyphicon-pencil edit-button',
-			data: {toggle: 'modal', target: '#edit-comment'} %>
+			data: {toggle: 'modal', target: "#edit-comment-#{comment.id}"} %>
 		</div>
 	<% end %>
 
@@ -27,7 +27,7 @@
 	<% end %>
 </div>
 
-<div id="edit-comment" class="modal fade" role="dialog">
+<div id="edit-comment-<%= comment.id %>" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
