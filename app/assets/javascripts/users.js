@@ -7,7 +7,6 @@ $(document).ready(function() {
 		var thisid = $(this).attr('id');
 		if ($.inArray(thisid, followlist) < 0) {
 			followlist.push(thisid);
-			console.log(followlist);
 		} else {
 			$(this).remove(); // delete the order record
 		}

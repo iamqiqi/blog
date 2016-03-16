@@ -1,7 +1,7 @@
 <div class="comment-container">
 	<div class="panel panel-default panel-body">
 		<div class="comment-heading">
-			<%= link_to comment.user.username, user_path(current_user) %>&nbsp&nbsp
+			<%= link_to comment.user.username, user_path(comment.user) %>&nbsp&nbsp
 			<span class="timestamp"><%= comment.created_at %></span>
 		</div>
 		<div class="comment-textarea">
@@ -9,12 +9,41 @@
 		</div>
 	</div>
 
+	<% if policy(comment).update? %>
+		<div>
+			<%= link_to '', [comment.article, comment],
+			class: 'glyphicon glyphicon-pencil edit-button',
+			data: {toggle: 'modal', target: '#edit-comment'} %>
+		</div>
+	<% end %>
+
 	<% if policy(comment).destroy? %>
 		<div>
 			<%= link_to '', [comment.article, comment],
-			class: 'glyphicon glyphicon-remove bio-edit-button remove-button',
+			class: 'glyphicon glyphicon-remove remove-button',
 			method: :delete,
 			data: { confirm: 'Are you sure?' } %>
 		</div>
 	<% end %>
+</div>
+
+<div id="edit-comment" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Edit Comments</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for([comment.article, comment]) do |f| %>
+					<p>
+						<%= f.text_area :body, class: 'form-control' %>
+					</p>
+					<p>
+						<%= f.submit "Save Changes", class: 'btn btn-primary' %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>

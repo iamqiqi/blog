@@ -8,7 +8,7 @@
 	margin-right: 30px;
 }
 
-.bio-container .bio-edit-button {
+.bio-container .edit-button {
 	display: none;
 	position: absolute;
 	right: 10px;
@@ -16,6 +16,6 @@
 	font-size: 25px;
 }
 
-.bio-container:hover .bio-edit-button {
+.bio-container:hover .edit-button {
 	display: inline-block;
 }

@@ -17,11 +17,29 @@
 	</p>
 
 	<hr>
-
-	<div id="comment-heading">COMMENTS</div>
-	<%= render @article.comments %>
-	<hr>
+	<% if @article.comments.length > 0 %>
+		<div class="section-heading">COMMENTS</div>
+		<%= render @article.comments %>
+		<hr>
+	<% end %>
 	<br>
-	<div id="comment-heading">WRITE YOUR COMMENT:</div>
-	<%= render 'comments/form' %>
+
+	<% if user_signed_in? %>
+		<div class="section-heading">WRITE YOUR COMMENT:</div>
+		<div class="comment-heading"><%= current_user.username %> says: </div>
+		<%= form_for([@article, @article.comments.build]) do |f| %>
+			<p>
+				<%= f.text_area :body, class: 'form-control' %>
+			</p>
+			<p>
+				<%= f.submit "Post Comment", class: 'btn btn-primary' %>
+			</p>
+		<% end %>
+	<% else %>
+		<div class="section-heading">
+			<%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+			to write your comment
+		</div>
+	<% end %>
+
 </div>

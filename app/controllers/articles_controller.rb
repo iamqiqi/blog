@@ -7,9 +7,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
-
 		@text = @article.text.gsub(/(\r?\n)/, '<br>')
-
 		authorize @article
 	end
 
@@ -38,7 +36,6 @@ class ArticlesController < ApplicationController
 			render 'new'
 		end
 	end
-
 
 	def update
 		@article = Article.find(params[:id])

@@ -3,6 +3,10 @@
 		<%= f.text_area :body, class: 'form-control' %>
 	</p>
 	<p>
-		<%= f.submit "Post Comment", class: 'btn btn-primary' %>
+		<% if @article.persisted? %>
+			<%= f.submit "Save Changes", class: 'btn btn-primary' %>
+		<% else %>
+			<%= f.submit "Post Comment", class: 'btn btn-primary' %>
+		<% end %>
 	</p>
 <% end %>
