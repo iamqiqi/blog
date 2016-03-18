@@ -42,6 +42,8 @@
 
 .comment-container:hover .edit-button {
 	display: inline-block;
+	cursor: pointer;
+	color: $link-color;
 }
 
 .section-heading {

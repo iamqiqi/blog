@@ -1,0 +1,17 @@
+<% if comment.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for([comment.article, comment], remote: true, format: :js) do |f| %>
+	<p>
+		<%= f.text_area :body, class: 'form-control' %>
+	</p>
+	<p>
+		<%= f.submit "Save Changes", class: 'btn btn-primary' %>
+	</p>
+<% end %>

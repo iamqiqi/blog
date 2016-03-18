@@ -11,9 +11,7 @@
 
 	<% if policy(comment).update? %>
 		<div>
-			<%= link_to '', [comment.article, comment],
-			class: 'glyphicon glyphicon-pencil edit-button',
-			data: {toggle: 'modal', target: "#edit-comment-#{comment.id}"} %>
+			<span class="glyphicon glyphicon-pencil edit-button" data-toggle="modal" data-target="#edit-comment-<%= comment.id %>"></span>
 		</div>
 	<% end %>
 
@@ -27,7 +25,7 @@
 	<% end %>
 </div>
 
-<div id="edit-comment-<%= comment.id %>" class="modal fade" role="dialog">
+<div id="edit-comment-<%= comment.id %>" class="modal fade edit-comment-box" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -35,14 +33,7 @@
 				<h4 class="modal-title">Edit Comments</h4>
 			</div>
 			<div class="modal-body">
-				<%= form_for([comment.article, comment]) do |f| %>
-					<p>
-						<%= f.text_area :body, class: 'form-control' %>
-					</p>
-					<p>
-						<%= f.submit "Save Changes", class: 'btn btn-primary' %>
-					</p>
-				<% end %>
+				<%= render partial: 'comments/comment_edit_form', locals: { comment: comment } %>
 			</div>
 		</div>
 	</div>

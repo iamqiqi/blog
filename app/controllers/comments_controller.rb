@@ -32,8 +32,15 @@ class CommentsController < ApplicationController
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.find(params[:id])
 		authorize @comment
-		@comment.update(comment_params)
-		redirect_to article_path(@article)
+		respond_to do |format|
+			format.js {
+				if @comment.update(comment_params)
+					render js: "window.location.href='#{article_path(@article)}'"
+				else
+					format.js
+				end
+			}
+		end
 	end
 
 	private

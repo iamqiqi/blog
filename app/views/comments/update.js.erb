@@ -1,0 +1,3 @@
+$("#edit-comment-<%= @comment.id %> .modal-body").html(
+	"<%= escape_javascript(render partial: 'comment_edit_form', locals: { comment: @comment }) %>"
+);
