@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WeiboSUCKS</title>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,700,400,400italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<% if notice %>
+	  <p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					WeiboSUCKS
+				</a>
+			</div>
+			<div class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+					<strong><%= link_to current_user.username, user_path(current_user) %></strong>.
+
+					Following:
+					<% if current_user.following.count != 0 %>
+						<%= link_to current_user.following.count, following_user_path(current_user) %>
+					<% else %>
+						0
+					<% end %> |
+
+					Followers:
+					<% if current_user.followers.count != 0 %>
+						<%= link_to current_user.followers.count, followers_user_path(current_user) %>
+					<% else %>
+						0
+					<% end %> |
+
+					<%= link_to 'New Blog', new_article_path %> |
+
+					<%= link_to 'Edit profile', edit_user_path(current_user), :class => 'navbar-link' %> |
+					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+				<% else %>
+					<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+					<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+				<% end %>
+			</div>
+
+		</div>
+	</nav>
+	<!-- before content -->
+	<div class="container">
+		<%= yield %>
+	</div>
+	<!-- after content -->
+</body>
+</html>

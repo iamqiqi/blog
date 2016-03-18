@@ -1,0 +1,46 @@
+.timestamp {
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.article-link {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+	line-height: 1.5;
+	color: #444;
+
+	&:hover {
+		background-color: #db4c3f;
+		color: white;
+	}
+}
+
+.article-title {
+	font-size: 35px;
+	text-align: center;
+	font-weight: 700;
+	display: block;
+	line-height: 4;
+	color: #444;
+}
+
+.article-text {
+	font-weight: 300;
+	font-size: 20px;
+	display: block;
+}
+
+.article-container {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+hr {
+	height: 3px;
+	border: 0 none;
+	background-color: #E0C7C7;
+	margin: 70px 0;
+}

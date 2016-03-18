@@ -1,0 +1,65 @@
+<h1 class="username text-center"><%= @user.username %></h1>
+<div class="bio-container">
+	<blockquote class="bio-text">
+		<% if @user.bio %>
+			<%= @user.bio %>
+		<% end %>
+	</blockquote>
+
+	<% if @user == current_user %>
+		<% if !current_user.bio.blank? %>
+			<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil edit-button', data: {toggle: 'modal', target: '#mybio'} %>
+		<% else %>
+			<%= link_to 'Add Bio', '#', id: 'edit_bio_link', class: 'add-button', data: {toggle: 'modal', target: '#mybio'}%>
+		<% end %>
+	<% end %>
+</div>
+
+<% if @user != current_user %>
+	<% if current_user.following?(@user) %>
+		<%= link_to "Unfollow", unfollow_user_path(@user), class: 'btn btn-primary', method: :post %>
+	<% else %>
+		<%= link_to "Follow", follow_user_path(@user), class: 'btn btn-primary', method: :post %>
+	<% end %>
+<% end %>
+
+<% @articles.each do |article| %>
+	<%= link_to article_path(article), class: 'article-link' do %>
+		<div><%= article.title %></div>
+		<div class="timestamp"><%= article.created_at %></div>
+	<% end %>
+<% end %>
+
+<div id="mybio" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Edit Bio</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for current_user, html: { id: 'edit_bio_form' } do |f| %>
+					<% if @user.errors.any? %>
+						<div id="error_explanation">
+							<h2>
+								<%= pluralize(@user.errors.count, "error") %> prohibited from being saved:
+							</h2>
+							<ul>
+								<% @user.errors.full_messages.each do |msg| %>
+									<li><%= msg %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+					<p>
+						<%= f.text_area :bio, class: 'bio-textbox' %>
+					</p>
+					<p>
+						<%= f.submit "Update Bio", class: 'btn btn-primary center-block' %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

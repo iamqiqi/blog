@@ -1,0 +1,54 @@
+// overwrite bootstrap
+#comment_body {
+	max-width: 90%;
+	height: 100px;
+}
+
+.comment-heading {
+	color: #444;
+	font-weight: 700;
+	font-size: 15px;
+	height: 30px;
+}
+
+.comment-textarea {
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.comment-container {
+	position:relative;
+}
+
+.comment-container .remove-button {
+	display: none;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-size: 20px;
+}
+
+.comment-container .edit-button {
+	display: none;
+	position: absolute;
+	right: 35px;
+	top: 6px;
+	font-size: 18px;
+}
+
+.comment-container:hover .remove-button {
+	display: inline-block;
+}
+
+.comment-container:hover .edit-button {
+	display: inline-block;
+	cursor: pointer;
+	color: $link-color;
+}
+
+.section-heading {
+	height: 50px;
+	font-weight: 700;
+	font-size: 20px;
+	color: #3b1212;
+}

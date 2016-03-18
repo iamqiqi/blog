@@ -1,0 +1,15 @@
+<div class="col-sm-3">
+	<div class="menu">
+		<div class="menu-heading">Personal settings</div>
+		<%= link_to "Profile", profile_user_path(@user), class: "menu-item" %>
+		<%= link_to "Account settings", edit_user_registration_path, class: "menu-item" %>
+		<%= link_to "Articles", articles_user_path(@user), class: "menu-item" %>
+	</div>
+</div>
+<div class="col-sm-7 col-sm-offset-2">
+	<div class="content">
+		<%= render 'account_settings' %>
+	</div>
+</div>
+
+<%= link_to "Back", :back %>

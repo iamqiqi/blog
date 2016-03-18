@@ -1,0 +1,30 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com
+
+.UserList {
+	.UserList-Row {
+		height: 50px;
+		// We used this to debug the margins
+		// border: 1px solid red;
+	}
+
+	.UserList-FollowButton {
+		width: 82px;
+		margin-top: 8px;
+	}
+
+	.UserList-Username {
+		margin-top: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.username {
+	font-weight: bold;
+	color: #cc0000;
+	font-size: 50px;
+}
+

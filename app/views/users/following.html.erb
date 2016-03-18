@@ -1,0 +1,30 @@
+<h1><%= @user.username %>'s followings</h1>
+<div class="UserList">
+	<div class="row UserList-Headers">
+		<div class="col-sm-2"><strong>Username</strong></div>
+		<div class="col-sm-3"><strong>Bio</strong></div>
+		<div class="col-sm-7"></div>
+	</div>
+
+	<% @following.each do |followee| %>
+		<div class="row UserList-Row">
+			<div class="col-sm-2 UserList-Username">
+				<%= link_to followee.username, user_path(followee) %>
+			</div>
+			<div class="col-sm-3 UserList-Username">
+				<%= followee.bio %>
+			</div>
+			<% if current_user != followee %>
+				<% if current_user and current_user.following?(followee) %>
+					<div class="col-sm-7">
+						<%= link_to "Unfollow", unfollow_user_path(followee), class: 'btn btn-primary UserList-FollowButton', method: :post %>
+					</div>
+				<% else %>
+					<div class="col-sm-7">
+						<%= link_to "Follow", follow_user_path(followee), class: 'btn btn-primary', method: :post %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
