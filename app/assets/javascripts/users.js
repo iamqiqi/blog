@@ -22,6 +22,7 @@ $(document).ready(function() {
 		}
 	});
 
+	
 	// $('.edit_comment').on('submit', function() {
 	// 	console.log('yes');
 	// 	// var comment_id = $('this').parentsUntil($('.edit-comment-box')).attr('id');
@@ -32,4 +33,5 @@ $(document).ready(function() {
 	// });
 
 	$('.active').modal("show");
+	$('.bio-textbox').autosize();
 });
