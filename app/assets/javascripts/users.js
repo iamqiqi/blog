@@ -1,3 +1,5 @@
+/* global $*/
+/* global autosize*/
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
@@ -22,16 +24,11 @@ $(document).ready(function() {
 		}
 	});
 
-	
-	// $('.edit_comment').on('submit', function() {
-	// 	console.log('yes');
-	// 	// var comment_id = $('this').parentsUntil($('.edit-comment-box')).attr('id');
-	// 	alert($('this').parentsUntil($('.edit-comment-box')).attr('id').val());
-	// 	console.log(comment_id);
-	// 	localStorage.setItem("comment_id", comment_id);
-	// 	$('this').addClass('active');
-	// });
+	$('#edit_bio_link').on('click', function() {
+		$('.mybio').modal('show');
+	});
 
-	$('.active').modal("show");
-	$('.bio-textbox').autosize();
+	$('.mybio').on('shown.bs.modal', function() {
+		$('.bio-textbox').autosize();
+	});
 });

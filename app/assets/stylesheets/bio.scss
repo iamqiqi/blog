@@ -1,11 +1,14 @@
 .bio-container {
 	display: inline-flex;
 	position:relative;
+	width: 96%;
 }
 
 .bio-text {
-//	font-size: 23px;
+	font-size: 23px;
 	margin-right: 30px;
+	width: 96%;
+	word-break: break-all;
 }
 
 .bio-container .edit-button {
@@ -13,7 +16,7 @@
 	position: absolute;
 	right: 10px;
 	top: 5px;
-//	font-size: 25px;
+	font-size: 25px;
 }
 
 .bio-container:hover .edit-button {
@@ -23,8 +26,6 @@
 .bio-textbox {
 	width: 96%;
 	margin: 0 2%;
-}
-
-#bio-textbox {
-//	max-height: 700px;
+	max-height: 500px;
+//	min-height: 300px;
 }

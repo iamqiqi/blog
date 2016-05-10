@@ -42,8 +42,8 @@ GEM
     autoprefixer-rails (6.1.2)
       execjs
       json
-    autosize-rails (1.18.17)
-      rails (>= 3.1)
+    autosize (1.1.18.4)
+      jquery-rails
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -177,7 +177,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
-  autosize-rails
+  autosize
   bootstrap-sass (~> 3.3.6)
   byebug
   devise

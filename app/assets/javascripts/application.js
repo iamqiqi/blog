@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+
+//= require jquery.autosize
 //= require users.js
+
+//// DISABLED require_tree .
