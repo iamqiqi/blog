@@ -11,7 +11,7 @@
 	word-break: break-all;
 }
 
-.bio-container .edit-button {
+.bio-container .bio-edit-button {
 	display: none;
 	position: absolute;
 	right: 10px;
@@ -19,7 +19,7 @@
 	font-size: 25px;
 }
 
-.bio-container:hover .edit-button {
+.bio-container:hover .bio-edit-button {
 	display: inline-block;
 }
 
@@ -27,5 +27,5 @@
 	width: 96%;
 	margin: 0 2%;
 	max-height: 500px;
-//	min-height: 300px;
+	min-height: 150px;
 }

@@ -1,16 +1,17 @@
 <h1 class="username text-center"><%= @user.username %></h1>
+
 <div class="bio-container">
-	<blockquote class="bio-text">
-		<% if @user.bio %>
+	<% if @user.bio && (!@user.bio.blank?) %>
+		<blockquote class="bio-text">
 			<%= markdown(@user.bio) %>
-		<% end %>
-	</blockquote>
+		</blockquote>
+	<% end %>
 
 	<% if @user == current_user %>
 		<% if !current_user.bio.blank? %>
-			<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil edit-button' %>
+			<%= link_to '', '#', class: 'glyphicon glyphicon-pencil bio-edit-button' %>
 		<% else %>
-			<%= link_to 'Add Bio', '#', id: 'edit_bio_link', class: 'add-button', data: {toggle: 'modal', target: '.mybio'}%>
+			<%= link_to 'Add Bio', '#', class: 'bio-add-button' %>
 		<% end %>
 	<% end %>
 </div>

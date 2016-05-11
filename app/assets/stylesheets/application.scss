@@ -42,9 +42,19 @@ a:hover {
 	text-decoration: none;
 }
 
+
+.text-area {
+	width: 100%;
+	
+	&.content-text-area {
+		height: 500px;
+	}
+}
+
 // Components
 @import "userlist";
 @import "article";
 @import "menu";
 @import "bio";
-@import "comment"
+@import "comment";
+@import "accountsetting"

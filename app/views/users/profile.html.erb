@@ -11,11 +11,11 @@
 
 		<% if @user == current_user %>
 			<% if !current_user.bio.blank? %>
-				<%= link_to '', '#', id: 'edit_bio_link', class: 'glyphicon glyphicon-pencil', data: {toggle: 'modal', target: '#mybio' %>
+				<%= link_to '', '#', class: 'glyphicon glyphicon-pencil bio-edit-button' %>
 			<% else %>
-				<%= link_to 'Add Bio', '#', id: 'edit_bio_link', data: {toggle: 'modal', target: '#mybio' %>
+				<%= link_to 'Add Bio', '#', class: 'bio-edit-button' %>
 			<% end %>
-			<div id="mybio" class="modal fade" role="dialog">
+			<div class="mybio modal fade" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
