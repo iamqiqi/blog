@@ -1,17 +1,17 @@
-<%= @activities.inspect %></br>
-<%= @activities2.inspect %>
-<% @activities.each do |activity| %>
-	<% if activity.key == 'relationship.create' %>
-		<div class="row follow" id=<%= activity.owner_id %> >
-			<%= activity.owner.username %> is following you now
-		</div>
-	<% elsif activity.key == 'article.new' %>
-		<div class="row new_article">
-			<%= activity.owner.username %> created a new article
-		</div>
-	<% elsif activity.key == 'comment.new' %>
-		<div class="row new_comment" id=<%= activity.owner_id %> >
-			<%= activity.owner.username %> commented on <%= link_to activity.trackable.article.title, activity.trackable.article %>
-		</div>
+	<%= @activities.inspect %></br>
+	
+	<% @activities.each do |activity| %>
+		<% if activity.key == 'relationship.create' %>
+			<div class="row follow" id=<%= activity.owner_id %> >
+				<%= link_to activity.owner.username, user_path(activity.owner) %> is following you now
+			</div>
+		<% elsif activity.key == 'article.new' %>
+			<div class="row new_article">
+				<%= link_to activity.owner.username, user_path(activity.owner)  %> created a new article
+			</div>
+		<% elsif activity.key == 'comment.new' %>
+			<div class="row new_comment" id=<%= activity.owner_id %> >
+				<%= link_to activity.owner.username, user_path(activity.owner)  %> commented on <%= link_to activity.trackable.article.title, activity.trackable.article %>
+			</div>
+		<% end %>
 	<% end %>
-<% end %>

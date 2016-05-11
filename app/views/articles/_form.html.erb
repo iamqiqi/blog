@@ -13,22 +13,20 @@
 		</div>
 	<% end %>
 
-	<p>
+	<div class="field">
 		<%= f.label :title %><br>
 		<%= f.text_field :title, class: "text-area title-text-area" %>
-	</p>
+	</div>
 
-	<p>
+	<div class="field">
 		<%= f.label :text %><br>
 		<%= f.text_area :text, class: "text-area content-text-area" %>
-	</p>
+	</div>
 
-	<p>
-		<% if @article.persisted? %>
-			<%= f.submit "Save Changes" %>
-		<% else %>
-			<%= f.submit "Post Article" %>
-		<% end %>
-	</p>
+	<% if @article.persisted? %>
+		<%= f.submit "Save Changes", class: 'btn btn-default update-button' %>
+	<% else %>
+		<%= f.submit "Post Article", class: 'btn btn-default update-button' %>
+	<% end %>
 
 <% end %>
