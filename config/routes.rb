@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # as :user do
-  #   get "/users/edit_account_settings", to: "devise/registrations#edit", as: :edit_user_account_registration
-  # end
 
-  # get "/users/edit_account_settings", to: "devise/registrations#edit", as: :edit_user_account_registration
-
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
   resources :articles do
   	resources :comments
   end
@@ -18,12 +17,9 @@ Rails.application.routes.draw do
   		get :following, :followers
   		post :follow, :unfollow
   		get :profile, :articles
-  		get :edit
   		get :account_settings
-  		get :newsfeed
   	end
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

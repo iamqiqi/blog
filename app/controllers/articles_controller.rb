@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
-		@text = @article.text.gsub(/(\r?\n)/, '<br>')
+		@text = @article.text
 		authorize @article
 	end
 
@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
 			@followers.each do |follower|
 				@fan = User.find(follower.follower_id)
 				@article.create_activity action: 'new', recipient: @fan, owner: current_user, parameters: {article: @article.id}
+				UserMailer.article_notification_email(@fan.username, current_user, @article).deliver_now
 			end
 			redirect_to @article
 		else

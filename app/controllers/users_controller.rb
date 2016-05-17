@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 			authenticate_user!
 		else
 			current_user.active_relationships.create(followee: @user)
+			UserMailer.follower_notification_email(@user.username, current_user).deliver_now
 			redirect_to :back
 		end
 	end
@@ -69,12 +70,5 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:username])
 		authorize @user
 		@articles = @user.articles
-	end
-
-	def newsfeed
-		@user = User.find_by_username(params[:username])
-		authorize @user
-		@activities = PublicActivity::Activity.where(recipient_id: current_user.id, key: 'relationship.create').order('created_at DESC')
-		@activities2 = @activities.select('owner_id', 'created_at').group('owner_id').order('created_at DESC').maximum('created_at')
 	end
 end

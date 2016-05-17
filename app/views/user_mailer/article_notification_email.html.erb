@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Weibo sucks! New article notication</h1>
+    <p>
+      Hi <%= @fan.username %>, <%= link_to @author.username, user_url(@author) %> created a new article <%= link_to @article.title, article_url(@article) %>
+    </p>
+  </body>
+</html>

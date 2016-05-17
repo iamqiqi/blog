@@ -24,11 +24,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.bio-edit-button').on('click', function() {
-		$('.mybio').modal('show');
-	});
-
-	$('.bio-add-button').on('click', function() {
+	$(document).on('click', '.show-modal-button', function() {
 		$('.mybio').modal('show');
 	});
 

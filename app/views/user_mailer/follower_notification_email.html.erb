@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Weibo sucks! New follower notication</h1>
+    <p>
+      Hi <%= @user.username %>, <%= link_to @follower.username, user_url(@follower) %> is now following you now!
+    </p>
+  </body>
+</html>
